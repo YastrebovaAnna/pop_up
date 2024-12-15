@@ -1,18 +1,11 @@
-import * as yup from 'yup';
-
-const errorMessages = {
-    required: "Це поле є обов'язковим",
-    invalidChars: "Тільки літери, пробіли та деякі символи (' ` -) дозволені",
-    minLength: (min) => `Має бути не менше ${min} символів`,
-    maxLength: (max) => `Має бути не більше ${max} символів`,
-    phoneFormat: "Невірний формат: введіть у форматі +380XXXXXXXXX",
-};
+import * as yup from "yup";
+import errorMessages from "./errorMessages";
 
 const nameValidation = yup
     .string()
     .trim()
     .required(errorMessages.required)
-    .matches(/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ'`\s-]{2,50}$/, errorMessages.invalidChars)
+    .matches(/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ'\s-]+$/, errorMessages.invalidChars)
     .min(2, errorMessages.minLength(2))
     .max(50, errorMessages.maxLength(50));
 
@@ -25,4 +18,4 @@ const validationSchema = yup.object().shape({
         .matches(/^\+380\d{9}$/, errorMessages.phoneFormat),
 });
 
-export {validationSchema};
+export { validationSchema };

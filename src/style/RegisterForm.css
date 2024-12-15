@@ -19,3 +19,50 @@ input::placeholder {
     margin-bottom: 5px;
     font-family: Arial, sans-serif;
 }
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup p {
+    margin-bottom: 20px;
+}
+
+.popup button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+.popup button:nth-child(2) {
+    background-color: gray;
+}
+
+.popup button:nth-child(2):hover {
+    background-color: #555;
+}
